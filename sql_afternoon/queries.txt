@@ -1,0 +1,118 @@
+create table product
+(
+	product_code integer primary key,
+	product_name varchar(100),
+	unit_price integer
+);
+insert into product values(1,'Mi phone',12000);
+insert into product values(2,'1+ earphone',2000);
+insert into product values(3,'iphone',60000);
+insert into product values(4,'I watch',12000);
+
+select * from product;
+
+create table salesexecutive
+(
+	sales_executive_id integer primary key,
+	name varchar(100),
+	dob date,
+	mob_num integer
+);
+
+insert into salesexecutive values(1,'Sai','2000-04-03',9621);
+insert into salesexecutive values(2,'Teja','2001-02-21',9622);
+insert into salesexecutive values(3,'Ambari','1999-12-23',9623);
+insert into salesexecutive values(4,'Sunny','2001-07-02',9624);
+
+
+select * from salesexecutive;
+
+create table category
+(
+	category_code integer primary key,
+	category_name varchar(100)
+);
+
+create table customer
+(
+	cust_id integer primary key,
+	name varchar(100),
+	dob date,
+	mob_num integer,
+	gender varchar(10)
+);
+insert into customer values(1,'Sai','2000-04-03',9621,'Male');
+insert into customer values(2,'Teja','2001-02-21',9622,'Female');
+insert into customer values(3,'Ambari','1999-12-23',9623,'Male');
+insert into customer values(4,'Sunny','2001-07-02',14465,'Male');
+select * from customer;
+
+create table location
+(
+	loc_code integer primary key,
+	loc_name varchar(100)
+);
+insert into location values(1,'Hyderabad');
+insert into location values(2,'Nellore');
+insert into location values(3,'Sangareddy');
+insert into location values(4,'warangal');
+select * from location;
+
+create table sells
+(
+	product_code integer,
+	sales_executive_id integer,
+	cust_id integer
+);
+insert into sells values(1,1,1);
+insert into sells values(2,2,2);
+insert into sells values(3,3,3);
+insert into sells values(4,4,4);
+select * from sells;
+
+create table belongs
+(
+	category_code integer,
+	product_code integer
+);
+insert into belongs values(1,2);
+insert into belongs values(1,3);
+insert into belongs values(2,3);
+insert into belongs values(3,4);
+select * from belongs;
+
+
+create table purchase
+(
+	product_code integer,
+	cust_id integer,
+	date_of_purchase date,
+	no_of_units integer
+);
+insert into purchase values(1,1,'2021-02-06',13);
+insert into purchase values(2,2,'2021-02-05',12);
+insert into purchase values(3,3,'2021-02-14',1);
+insert into purchase values(4,4,'2021-02-13',5);
+insert into purchase values(2,1,'2021-02-12',3);
+
+select * from purchase;
+
+create table have
+(
+	cust_id integer,
+	loc_code integer
+);
+insert into have values(1,1);
+insert into have values(2,2);
+insert into have values(3,3);
+insert into have values(4,4);
+select * from have;
+
+
+select product_name,loc_name from product 
+natural join purchase natural join customer natural join have natural join location 
+where loc_name='Hyderabad' and 
+date_of_purchase between '2021-01-02' and'2021-02-30' order by no_of_units desc limit 1;
+
+select sales_executive_id,name,dob,mob_num,sum(no_of_units)
+from salesexecutive natural join sells natural join purchase group by sales_executive_id ;
