@@ -1,0 +1,91 @@
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 45px;
+  word-break: break-all;
+  
+}
+ 
+
+.row {
+  margin: 8px -16px;
+}
+.row,
+.row > .column {
+  padding: 8px;
+}
+.column {
+  float: left;
+  width: 25%;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.content {
+  background-color: white;
+  padding: 10px;
+}
+
+@media screen and (max-width: 900px) {
+  .column {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body style="background-color: #f1f1f1;padding: 15px;font-family: Copperplate;">
+
+<div class="main" style="max-width: 1000px;
+  margin: auto;">
+
+<h2 style="text-align:center; background-color:yellow; font-family:courier ; color:red">PORTFOLIO</h2>
+<div class="content">
+  <img src="F:\accolite\day3\html afternoon\pic_1.jpg" alt="Profile Photo" style="width:50%">
+  <h3>About Me</h3>
+  <p>I am <b><i>Sai Teja Ambari</b></i> working as an Intern in Accolite. I will be graduating from Vasavi College Of Engineering in 2021 and will be working for Accolite. </p>
+  <p>I love to code and apart from coding I am into playing cricket, VolleyBall, Table Tenis. Watching web series has been a hobby lately.</p>
+</div>
+
+  <div class="column">
+    <div class="content">
+    <img src="/w3images/nature.jpg" alt="Nature" style="width:100%">
+      <h3>Skills</h3>
+      <p>
+      <ul>
+      		<li>HTML</li>
+            <li>CSS</li>
+            <li>JS</li>
+            <li>Java, C, Python</li>
+      </p>
+    </div>
+  </div>
+  <div class="column">
+    <div class="content">
+    <img src="/w3images/mountains.jpg" alt="Mountains" style="width:100%">
+      <h3>Contact</h3>
+      <p>
+      		<li>   Mob No:91824388XX</li>
+            <li><a href="https://www.linkedin.com/in/saiteja-ambari-044212192/">LinkedIn</a></li>
+            <li>   Mail: saiteja.ambari@gmail.com</li>
+            
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+
+</body>
+</html>
