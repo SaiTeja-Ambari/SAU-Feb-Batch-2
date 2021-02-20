@@ -1,0 +1,129 @@
+<html>
+    <head></head>
+    <body style="margin:40px ; background-color:#FAEBD7">
+        <label id="ipL1" for="fname" ></label>
+        <input type="text" id="textfn" placeholder="First name" name="text" value=""><br><br/>
+
+        <label id="ipL2" for="fname" ></label>
+        <input type="text" id="textln" placeholder="Last name" name="text" value=""><br><br/>
+
+        <label id="ipL3" for="fname" ></label>
+        <input type="number" id="textage" placeholder="Age" name="age" value=""><br><br/>
+
+        <label id="ipL4" for="fname" >Gender</label>
+
+<br>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br><br><br/>
+
+        <label id="ipL5" for="fname" ></label>
+        <input type="number" id="textrn" placeholder="Roll No" name="rollno" value=""><br><br/>
+
+        <label id="ipL6" for="fname" ></label>
+        <input type="date" id="textdob" placeholder="Date of birth" name="dob" value=""><br><br/>
+
+        <label id="ipL7" for="fname" ></label>
+        <input type="email" id="textemail" placeholder="email" name="email" value=""><br><br/>
+
+        <label id="ipL8" for="fname" >Occupation</label>
+        <select name="cars" id="occupation">
+            <option value="engineer">Engineer</option>
+            <option value="architect">Lawyer</option>
+
+            <option value="doctor">Doctor</option>
+            <option value="teacher">Teacher</option>
+            <option value="business">Business</option>
+
+            <option value="architect">Other</option>
+          </select><br><br/>
+         <input type="submit"  value="Submit" onclick="submit()"><br>
+         <label id="ipL11" for="fname"></label><br>
+         <label id="ipL12" for="fname"></label>
+         <br><br/><br><br/>
+         <label id="ipL9" for="fname" ></label>
+         <input type="number" id="textget" placeholder="RNO" name="text" value="">
+         <button onclick="get()">Get</button>
+         <br><br/>
+        <label id="ipL10" for="fname"></label>
+<script>
+class Student{
+constructor(firstName, lastName, age, gender, rollno, dob,email){
+this.firstName=firstName;
+this.lastName=lastName;
+this.age=age;
+this.gender=gender;
+this.rollno=rollno;
+this.dob=dob;
+this.email=email}
+}
+
+let students=[];
+
+function validateemail(x)  
+{  
+
+var at=x.indexOf("@");  
+var dot=x.lastIndexOf(".");  
+if (at<1 || dot<at+2 || dot+2>=x.length){    
+  return true;  
+  }  
+}  
+
+
+function submit(){
+    
+    console.log("Validating all ..");
+    if(document.getElementById("textfn").value===""||document.getElementById("textln").value===""||document.getElementById("textage").value===""||(document.getElementById("male").checked === false&&document.getElementById("female").checked === false)||document.getElementById("textrn").value===""||document.getElementById("textdob").value===""||document.getElementById("textemail").value===""||document.getElementById("occupation").value==="")
+    document.getElementById("ipL11").innerText="Incomplete data";
+    else if(validateemail(document.getElementById("textemail").value))
+    document.getElementById("ipL12").innerText="Email format incorrect";
+    else{
+
+        document.getElementById("ipL11").innerText="successful";
+        document.getElementById("ipL12").innerText="";
+
+let fn=document.getElementById("textfn").value;
+let ln=document.getElementById("textln").value;
+let age=document.getElementById("textage").value;
+
+let gender;
+if(document.getElementById("male").checked === true)
+gender="Male";
+else{
+    gender="Female";
+}
+
+let rollno=document.getElementById("textrn").value;
+let dob=document.getElementById("textdob").value;
+let email=document.getElementById("textemail").value;
+
+let s = new Student(fn,ln,age,gender,rollno,dob,email);
+s.Occupation=document.getElementById("occupation").value;
+
+students.push(s);
+console.log(s);
+    }
+}
+
+function get(){
+    let index=document.getElementById("textget").value;
+
+    let details="";
+details+="First Name= "+students.find(students => students.rollno === index).firstName;
+details+="\n Last Name= "+students.find(students => students.rollno === index).lastName;
+details+="\n Age= "+students.find(students => students.rollno === index).age;
+details+="\n Gender= "+students.find(students => students.rollno === index).gender;
+details+="\n Roll Number= "+students.find(students => students.rollno === index).rollno;
+details+="\n Date of birth= "+students.find(students => students.rollno === index).dob;
+details+="\n Occupation= "+students.find(students => students.rollno === index).Occupation;
+details+="\n Email= "+students.find(students => students.rollno === index).email;
+
+    document.getElementById("ipL10").innerText=details;
+
+}
+</script>
+
+    </body>
+</html>
