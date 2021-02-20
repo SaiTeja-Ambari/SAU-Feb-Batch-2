@@ -1,0 +1,61 @@
+<html>
+    <head>
+<style>
+      body {
+        background-color: #1c87c9;
+      }
+</style>
+    </head>
+    <body style="margin:40px" background-color: "red">
+    <input type="text" placeholder="Enter a String" id="text" name="text" value=""><br><br/>
+
+    <input type="submit"  value="length" onclick="length()"><br><br/>
+
+    <input type="submit"  value="Upper and lower" onclick="casePrint()"><br><br/>
+<input type="submit"  value="Vowel and Consonants" onclick="vowelNCon()"><br><br/>
+
+    <input type="submit"  value="Submit" onclick="submit()"><br><br/>
+
+    <label id="inputLabel1" for="fname"></label><br>
+    <label id="inputLabel2" for="fname"></label><br>
+    <label id="inputLabel3" for="fname"></label><br>
+    <label id="inputLabel4" for="fname"></label><br>
+    <label id="inputLabel5" for="fname"></label><br>
+<script>
+function length(){
+ let ipv = document.getElementById("text");
+
+   document.getElementById("inputLabel1").innerText="Length of string = "+ipv.value.length;
+
+ 
+}
+
+function casePrint(){
+ let ipv = document.getElementById("text");
+document.getElementById("inputLabel2").innerText="Upper Case = "+ipv.value.toUpperCase();
+
+    document.getElementById("inputLabel3").innerText="Lower Case = "+ipv.value.toLowerCase();
+
+ 
+}
+function vowelNCon(){
+let ipv = document.getElementById("text");
+
+let consonants="";
+    let vowels="";
+    
+    for(let i=0;i<ipv.value.length;i++){
+        let c=ipv.value.charAt(i);
+        if(c==="a"||c==="e"||c==="i"||c==="o"||c==="u"||c==="A"||c==="E"||c==="I"||c==="O"||c==="U"){
+            vowels+=c;
+        }
+        else{
+            consonants+=c;
+        }
+    }
+    document.getElementById("inputLabel4").innerText="Consonants = "+consonants;
+    document.getElementById("inputLabel5").innerText="Vowels = "+vowels;
+
+}</script>
+</body>
+</html>
