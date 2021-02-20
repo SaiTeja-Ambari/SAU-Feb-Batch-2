@@ -1,0 +1,8 @@
+1
+/couchbase-cli bucket-create -c couchbase://127.0.0.1 --username Saiteja | --passwe Sai --bucket Beer --bucket-type couchbase \ --bucket-ramsize 3333
+
+2
+/cbexport json -c couchbase://127.0.0.1 -u Saiteja -p Sai -b beer-sample -o /User Saiteja/Desktop/beer-sample-cbexport.json -f lines - 4 --scope-field couchbaseScope collection-field couchbaseCollection
+
+3
+./cbimport json-c couchbase://127.0.0.1 -u Saiteja -p Sai -b Beer -f lines -d fi Saiteja/Desktop/beer-sample-cbexport.json -t 4 -g %brewery_id%
