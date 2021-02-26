@@ -1,0 +1,14 @@
+
+public class StudSerDese {
+	public static void deserializeXml() {
+	    try {
+	        XmlMapper xmlMapper = new XmlMapper();
+	        String readContent = new String(Files.readAllBytes(Paths.get("to_deserialize.xml")));
+
+
+
+	public static void main(String ab[]){
+		deserializeXml();
+	}
+
+}
