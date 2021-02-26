@@ -1,0 +1,23 @@
+import java.io.*;
+public class CountWithoutThread {
+public static void main(String ab[]){
+	
+	int co = 0;  
+    try{
+    
+    FileReader file = new FileReader("C:\\Users\\nooka\\OneDrive\\Desktop\\random.txt");  
+    BufferedReader br = new BufferedReader(file);  
+    String ip;
+    while((ip = br.readLine()) != null) {  
+        String w[] = ip.split(" ");  
+        co = co + w.length;  
+    }  
+      
+    System.out.println("Number of words  " + co);  
+    br.close(); 
+} catch (FileNotFoundException e) {
+  System.out.println("An error occurred.");
+  e.printStackTrace();
+}
+}
+}

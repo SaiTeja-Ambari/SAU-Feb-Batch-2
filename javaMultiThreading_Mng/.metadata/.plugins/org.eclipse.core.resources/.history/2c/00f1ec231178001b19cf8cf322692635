@@ -1,0 +1,17 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+
+
+public class CountWithThreads implements Runnable{
+	int co = 0;  
+    try{
+    
+    FileReader file = new FileReader("F:\\accolite\\javaMultiThreading_Mng\\Words.txt");  
+    BufferedReader br = new BufferedReader(file);  
+    String ip;
+    Thread t1 = new Thread(new RunnableDemo().new RunnableImpl()); 
+    
+    t1.start(); 
+
+    long start1=System.nanoTime();
+}

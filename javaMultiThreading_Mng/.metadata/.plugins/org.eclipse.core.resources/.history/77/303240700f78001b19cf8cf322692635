@@ -1,0 +1,23 @@
+import java.io.*;
+public class CountWithoutThread {
+public static void main(String ab[]) throws IOException{
+	
+	int co = 0;  
+    try{
+    
+    FileReader file = new FileReader("F:\accolite\javaMultiThreading_Mng\words.txt");  
+    BufferedReader br = new BufferedReader(file);  
+    String ip;
+    while((ip = br.readLine()) != null) {  
+        String w[] = ip.split(" ");  
+        co = co + w.length;  
+    }  
+    br.close(); 
+      
+    System.out.println("Number of words  " + co);  
+    
+} catch (FileNotFoundException e) {
+  e.printStackTrace();
+}
+}
+}
